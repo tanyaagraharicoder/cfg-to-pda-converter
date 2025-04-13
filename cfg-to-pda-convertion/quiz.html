@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Terms & Rules</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quiz Terms & Rules</h1>
+        <ul class="rules">
+            <li>📌 The quiz consists of **20 multiple-choice questions**.</li>
+            <li>⏳ You have **5 minutes** to complete the quiz.</li>
+            <li>✅ Each correct answer earns **1 point**.</li>
+            <li>❌ No negative marking for wrong answers.</li>
+            <li>⏰ The quiz will **auto-submit** when time runs out.</li>
+            <li>🎯 Your score and motivation message will be displayed at the end.</li>
+        </ul>
+        <div class="checkbox-container">
+            <input type="checkbox" id="agree">
+            <label for="agree">I accept the terms & rules</label>
+        </div>
+        <button class="btn" id="start-btn" disabled onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <script>
+        document.getElementById("agree").addEventListener("change", function () {
+            document.getElementById("start-btn").disabled = !this.checked;
+        });
+
+        function startQuiz() {
+            window.location.href = "quiz-start.html";
+        }
+    </script>
+
+</body>
+</html>

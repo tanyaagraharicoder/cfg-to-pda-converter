@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDA Visualizer</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+</div>
+</div>
+<div >
+
+
+
+<div class="background">
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+</div>
+
+<div class="theme-switcher">
+    <button onclick="changeTheme(1)">Theme 1</button>
+    <button onclick="changeTheme(2)">Theme 2</button>
+    <button onclick="changeTheme(3)">Theme 3</button>
+    <button onclick="changeTheme(4)">Theme 4</button>
+    <button onclick="changeTheme(5)">Theme 5</button>
+    <button onclick="changeTheme(6)">Theme 6</button>
+   
+</div>
+
+
+
+    <h2>CFG To PDA Converter </h2>
+
+    <label for="questionSelect">Select Question:</label>
+    <select id="questionSelect">
+        <option value="q1">L = { aⁿbⁿ | n ≥ 1 }</option>
+        <option value="q2">L = { ww^R | w ∈ {a, b}* }</option>
+        <option value="custom">Custom Question</option>
+    </select>
+
+    <div id="customInputSection" style="display: none;">
+        <h3>Enter Custom Question</h3>
+        <label for="customDescription">Description:</label>
+        <input type="text" id="customDescription">
+
+        <label for="customInput">Input String:</label>
+        <input type="text" id="customInput">
+
+        <label for="customSteps">Transitions (Format: state,input,push/pop):</label>
+        <textarea id="customSteps" placeholder="q0,a,pushA&#10;q0,a,pushA&#10;q1,b,popA&#10;q1,b,popA&#10;qf,ε,accept"></textarea>
+
+        <button id="addCustomQuestion">Add Custom Question</button>
+    </div>
+
+    <button id="startButton">Start</button>
+
+    <p id="processingMessage" style="display: none;">Processing...</p>
+
+    <ul id="stepList">
+        Steps: 
+    </ul>
+    
+
+    <h3>Step By Step State Transition </h3>
+    <svg id="pdaCanvas" width="800" height="400"></svg>
+    <h1>Final PDA diagram</h1>
+    <svg id="finalPDACanvas" width="800" height="400"></svg>
+    <br>
+    <!-- <h1>Final PDA diagram</h1> -->
+    <h2>State Transition Table</h2>
+<table id="transitionTable">
+    <thead>
+        <tr>
+            <th>Step</th>
+            <th>Current State</th>
+            <th>Input</th>
+            <th>Stack Before</th>
+            <th>Action</th>
+            <th>Stack After</th>
+            <th>Next State</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Rows will be added dynamically -->
+    </tbody>
+</table>
+
+    <section id="quiz">
+        <h2>CFG & PDA Quiz</h2>
+        <br>
+        <button class="btn" onclick="window.location.href='quiz.html'" onclick="StartQuize()">Start Quiz</button>
+        <!-- <button onclick="startQuiz()">Start Quiz</button> -->
+        <!-- <div id="quizContainer"></div>
+        <div id="scoreBoard"></div> -->
+    </section>
+
+    
+    
+
+    <section id="knowledgeHub">
+        <h2>Knowledge Hub</h2>
+        <br>
+        <button class="btn" onclick="window.location.href='knowledge-hub.html'">Explore more </button>
+       
+    </section>
+    
+</div>
+
+
+    
+
+    <script src="script.js"></script>
+    
+
+</body>
+</html>

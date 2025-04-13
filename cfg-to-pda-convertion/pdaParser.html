@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFG to PDA Expression Parser</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #output { margin-top: 20px; white-space: pre-wrap; font-family: monospace; }
+        .stack-box { border: 2px solid black; padding: 10px; margin-top: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <h2>CFG to PDA Expression Parser</h2>
+    <input type="text" id="expression" placeholder="Enter an expression (e.g., 3 + (5 * 2))">
+    <button onclick="parseInput()">Parse</button>
+    <div id="output"></div>
+
+    <!-- Include the parser script -->
+    <script src="pdaParser.js"></script>
+
+    <script>
+        function parseInput() {
+            let expression = document.getElementById("expression").value;
+            let result = pda.parseExpression(expression);
+
+            let outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+
+            if (result.success) {
+                outputDiv.innerHTML += "<strong>✅ Expression is valid!</strong><br>";
+                result.transitions.forEach(step => {
+                    outputDiv.innerHTML += `<div class='stack-box'>${step}</div><br>`;
+                });
+            } else {
+                outputDiv.innerHTML = `<strong>❌ Error: ${result.error}</strong>`;
+            }
+        }
+    </script>
+    <script src="pdaParser.js"></script>
+</body>
+</html>

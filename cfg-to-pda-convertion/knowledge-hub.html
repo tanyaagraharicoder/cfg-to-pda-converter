@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Hub</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            text-align: center;
+        }
+
+        /* Main Content Box */
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 30px;
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Topic Headings */
+        .topic {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #007bff;
+            position: relative;
+        }
+
+        /* Topic Divider */
+        .topic::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #007bff;
+            margin-top: 5px;
+        }
+
+        /* Text Paragraphs */
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* Example Box */
+        .example-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 16px;
+            border-left: 5px solid #007bff;
+        }
+
+        /* Image Styling */
+        .diagram {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .diagram img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* List Styling */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 17px;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        ul li:hover {
+            background-color: #f1f8ff;
+            cursor: pointer;
+        }
+
+        /* Button Styling */
+        .btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            margin: 20px auto;
+            display: block;
+            transition: 0.3s;
+            width: fit-content;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📚 Knowledge Hub</h1>
+
+        <!-- CFG Explanation -->
+        <div class="topic">📌 What is CFG?</div>
+        <p>A **Context-Free Grammar (CFG)** is a type of formal grammar used in **linguistics and programming**. It consists of a **set of production rules** that define a language.</p>
+        <div class="example-box">
+            <strong>Example:</strong><br>
+            CFG for balanced parentheses:<br>
+            S → (S)S | ε
+        </div>
+
+        <!-- PDA Explanation -->
+        <div class="topic">📌 What is PDA?</div>
+        <p>A **Pushdown Automaton (PDA)** is a computational model that extends finite automata with a **stack**, allowing it to **recognize context-free languages (CFLs)**.</p>
+        <div class="example-box">
+            <strong>Example:</strong><br>
+            A PDA for recognizing balanced parentheses:<br>
+            δ(q0, '(', Z) → (q0, (Z)<br>
+            δ(q0, ')', '(') → (q0, ε)
+        </div>
+
+        <!-- PDA Diagram -->
+        <div class="diagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Pushdown_automaton.svg/400px-Pushdown_automaton.svg.png" alt="PDA Diagram">
+        </div>
+
+        <!-- CFG to PDA Conversion -->
+        <div class="topic">📌 CFG to PDA Conversion</div>
+        <p>CFG can be converted into a PDA by **constructing transitions based on production rules**. A PDA simulates the derivation process using a stack.</p>
+        <div class="example-box">
+            <strong>Example Conversion:</strong><br>
+            CFG: S → aSb | ε<br>
+            PDA Transition:<br>
+            δ(q0, ε, Z) → (q1, SZ)<br>
+            δ(q1, a, S) → (q1, aS)<br>
+            δ(q1, b, a) → (q1, ε)<br>
+            δ(q1, ε, Z) → (qf, Z)
+        </div>
+
+       
+            A Pushdown Automata (PDA) can be defined as – 
+M = (Q, Σ, Γ, δ, q0, Ζ, F) where  
+
+ 
+<ul>
+    <li>Q is a finite set of states</li>
+    <li>Σ is a finite set which is called the input alphabet</li>
+    <li>Γ is a finite set which is called the stack alphabet</li>
+    <li>δ is a finite subset of Q X ( Σ ∪ {ε} X Γ X Q X Γ*) the transition relation.</li>
+    <li>q0 ∈ Q is the start state</li>
+    <li>Ζ ∈ Γ is the initial stack symbol</li>
+    <li>F ⊆ Q is the set of accepting states</li>
+</ul>
+
+        </p>
+        <div>
+
+            <h1>Representation of State Transition –</h1>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/Representation.jpg" alt="">
+            <h1>Representation of Push in a PDA –</h1>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/PUSH-3.jpg" alt="">
+            <h1>Representation of Pop in a PDA – </h1>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/POP.jpg" alt="">
+            <h1>Representation of Ignore in a PDA – </h1>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/ignore.jpg" alt="">
+
+        </div>
+        <div>
+            <h1>Q) Construct a PDA for language L = {0n1m2m3n | n>=1, m>=1}</h1>
+            <h3>Approach used in this PDA – </h3>
+            <p>First 0’s are pushed into stack. Then 1’s are pushed into stack. 
+                Then for every 2 as input a 1 is popped out of stack. If some 2’s are still left and top of stack is a 0 then string is not accepted by the PDA. Thereafter if 2’s are finished and top of stack is a 0 then for every 3 as input equal number of 0’s are popped out of stack. If string is finished and stack is empty then string is accepted by the PDA otherwise not accepted.</p>
+                <ul type="number">
+                    <l1>On receiving 0 push it onto stack. On receiving 1, push it onto stack and goto next state</l1>
+                    <l1> On receiving 1 push it onto stack. On receiving 2, pop 1 from stack and goto next state</l1>
+                    <l1>On receiving 2 pop 1 from stack. If all the 1’s have been popped out of stack and now receive 3 then pop a 0 from stack and goto next state</l1>
+                    <l1>On receiving 3 pop 0 from stack. If input is finished and stack is empty then goto last state and string is accepted
+                    </l1>
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/PDAsoln1-1024x499.jpg" alt="">
+                    
+                </ul>
+        </div>
+
+         <!-- Real-Life Applications -->
+         <div class="topic">📌 Real-Life Applications</div>
+         <p>CFG and PDA have several **real-world applications**, including:</p>
+         <ul>
+             <li>✅ **Compiler Design** – CFGs help in parsing programming languages.</li>
+             <li>✅ **Natural Language Processing (NLP)** – CFGs are used in AI-based language translation.</li>
+             <li>✅ **Speech Recognition** – PDAs help in processing phonetic patterns.</li>
+             <li>✅ **XML/HTML Parsing** – Web browsers use CFGs to validate document structures.</li>
+         </ul>
+         <p>
+
+        <button class="btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+
+</body>
+</html>
